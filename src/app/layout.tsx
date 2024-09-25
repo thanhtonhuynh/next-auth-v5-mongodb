@@ -37,8 +37,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionProvider>
-          <NavBarClient />
-          {/* <NavBarServer /> */}
+          {/* <NavBarClient /> */}
+          <NavBarServer />
           {children}
           <Toaster />
         </SessionProvider>

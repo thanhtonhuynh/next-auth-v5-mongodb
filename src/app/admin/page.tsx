@@ -1,4 +1,4 @@
-import getSession from "@/lib/getSession";
+import { getCurrentUser } from "@/lib/session";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
@@ -7,8 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const session = await getSession();
-  const user = session?.user;
+  const user = await getCurrentUser();
 
   if (!user) {
     redirect("/api/auth/signin?callbackUrl=/admin");

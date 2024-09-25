@@ -1,12 +1,11 @@
 import { signIn } from "@/auth";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import getSession from "@/lib/getSession";
 import UserButtonServer from "./UserButton-server";
+import { getCurrentUser } from "@/lib/session";
 
 export default async function NavBarServer() {
-  const session = await getSession();
-  const user = session?.user;
+  const user = await getCurrentUser();
 
   return (
     <header className="sticky top-0 bg-background px-3 shadow-sm">
